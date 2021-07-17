@@ -1,0 +1,2 @@
+# fundamentos
+ejercicio explicativo
