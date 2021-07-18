@@ -20,12 +20,15 @@ for i in Pairs:
     R.append(list(i))
 
 #def is_equivalent(elements,relation):
-'''
 def is_reflexive(elements,relation):
-    for i in elements:
-        for j in relation:
-            print(j.count(i))
-'''
+    for i in relation:
+        if i.count(i[0]) == 2:
+            elements.remove(i[0])
+    if len(elements) > 0:
+        return(False)
+    else:
+        return(True)
+
 def is_symmetrical(relation):
     for i in relation:
         if i.count(i[0]) == 2:
@@ -56,5 +59,6 @@ def is_transitive(relation):
         secondpairs = filter(lambda x : x[0] == medio, relation)
         print(list(secondpairs))
 
-is_transitive(R)
+#is_transitive(R)
+print(is_reflexive(A,R))
 #print(is_symmetrical(A,R))
