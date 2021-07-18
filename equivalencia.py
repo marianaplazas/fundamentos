@@ -62,3 +62,4 @@ def is_transitive(relation):
 #is_transitive(R)
 print(is_reflexive(A,R))
 #print(is_symmetrical(A,R))
+#congratulations :)
