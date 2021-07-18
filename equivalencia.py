@@ -30,9 +30,16 @@ def is_reflexive(elements,relation):
         return(True)
 
 def is_symmetrical(relation):
+    index = []
     for i in relation:
         if i.count(i[0]) == 2:
-            relation.pop(relation.index(i))  
+            index.append(relation.index(i))
+    for i in sorted(index, reverse=True):
+        del relation[i]
+
+    if len(relation) == 0:
+        return(True)  
+        
     for i in relation:
         j = i
         j.reverse()
@@ -59,7 +66,3 @@ def is_transitive(relation):
         secondpairs = filter(lambda x : x[0] == medio, relation)
         print(list(secondpairs))
 
-#is_transitive(R)
-print(is_reflexive(A,R))
-#print(is_symmetrical(A,R))
-#congratulations :)
