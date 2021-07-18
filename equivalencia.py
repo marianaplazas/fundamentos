@@ -64,5 +64,15 @@ def is_transitive(relation):
         medio = i[1]
         #traeme todos los que empiezan con el medio
         secondpairs = filter(lambda x : x[0] == medio, relation)
-        print(list(secondpairs))
+        #print(list(secondpairs))
+        secondpairs = list(secondpairs)
+        #print(secondpairs)
+        for pair in secondpairs:
+            thisPair = []
+            thisPair.insert(0, mayor)
+            thisPair.insert(1, pair[1])
+            #print(thisPair)
+            if not(thisPair in relation):
+                return False
+    return True
 
