@@ -8,22 +8,17 @@ La forma en que se recibe el input es por consola los elementos separados
 A = w x y z
 R = xy wy zz
 '''
-print("Ingresar los elementos con el formato: x y z")
-A = input("Escriba los elementos del conjunto A: ")
-print("Ingresar las parejas con el formato: xx yy zz")
-Pairs = input("Escriba las parejas ordenadas de la relación R: ")
-
-A = A.split(" ")
-Pairs = Pairs.split(" ")
-R = []
-
-for i in Pairs:
-    R.append(list(i))
 
 def is_equivalent(A,R):
-    reflexividad = is_reflexive(A,R)
-    simetria = is_symmetrical(R)
-    transitividad = is_transitive(R)
+    listaA = A[:]
+    listaR = R[:]
+    reflexividad = is_reflexive(listaA,listaR)
+    listaA = A[:]
+    listaR = R[:]
+    transitividad = is_transitive(listaR)
+    listaA = A[:]
+    listaR = R[:]
+    simetria = is_symmetrical(listaR)
     if (reflexividad and simetria and transitividad):
         print("Esta relación es de equivalencia.")
     else:
@@ -45,6 +40,7 @@ def is_reflexive(elements,relation):
     else:
         return(True)
 
+    
 def is_symmetrical(relation):
     index = []
     for i in relation:
@@ -66,6 +62,7 @@ def is_symmetrical(relation):
             relation.pop(relation.index(j))
         return(True)
 
+    
 def is_transitive(relation):
 
     for i in relation:
@@ -80,5 +77,28 @@ def is_transitive(relation):
             if not(thisPair in relation):
                 return False
     return True
-    
+
+
+print("")
+print("Hola, soy tu asistente personal!")
+print("Compruebo si una relación es de equivalencia.")
+print("")
+print("Por favor, ingresar los elementos con el formato: x y z")
+A = input("Escribe los elementos del conjunto A: ")
+print("")
+print("Por favor, ingresar las parejas con el formato: xx yy zz")
+Pairs = input("Escribe las parejas ordenadas de la relación R: ")
+print("")
+print("")
+
+A = A.split(" ")
+Pairs = Pairs.split(" ")
+R = []
+
+for i in Pairs:
+    R.append(list(i))
+
 is_equivalent(A,R)
+print("")
+print("Gracias, adiós!")
+print("")
